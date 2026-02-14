@@ -1,54 +1,73 @@
+// ========== TYPING ANIMATION ==========
 var typingText = document.querySelector(".text2");
 var myArray = [
   "Web Developer",
   "Student at Universitas Sriwijaya",
-  "Data engginering",
-  "backend",
+  "Data Engineer",
+  "Backend Developer",
 ];
-var arrayIndex = 1;
+var arrayIndex = 0;
 
 function textReplace() {
-  setInterval(timer, 5000);
-  function timer() {
-    if (arrayIndex < myArray.length) {
-      typingText.innerHTML = myArray[arrayIndex];
-      arrayIndex = arrayIndex + 1;
-    } else {
+  // Set initial text
+  typingText.innerHTML = myArray[arrayIndex];
+
+  // Change text every 5 seconds
+  setInterval(function () {
+    arrayIndex++;
+    if (arrayIndex >= myArray.length) {
       arrayIndex = 0;
-      typingText.innerHTML = myArray[arrayIndex];
-      arrayIndex = arrayIndex + 1;
     }
-  }
+    typingText.innerHTML = myArray[arrayIndex];
+  }, 5000);
 }
+
+// Start the animation
 textReplace();
 
+// ========== MOBILE MENU TOGGLE ==========
 var menuBtn = document.querySelector(".navbar .menu-btn");
 var menuList = document.querySelector(".navbar .nav-list");
 var menuListItems = document.querySelectorAll(".nav-list li a");
 
-menuBtn.addEventListener("click", addActiveClass);
-
-function addActiveClass() {
+// Toggle menu on click
+menuBtn.addEventListener("click", function () {
   menuList.classList.toggle("active");
-}
+});
 
+// Close menu when menu item is clicked
 for (var i = 0; i < menuListItems.length; i++) {
-  menuListItems[i].addEventListener("click", menuItemClicked);
+  menuListItems[i].addEventListener("click", function () {
+    menuList.classList.remove("active");
+  });
 }
 
-function menuItemClicked() {
-  menuList.classList.remove("active");
-}
-
+// ========== STICKY NAVBAR ON SCROLL ==========
 var homeSection = document.querySelector(".home");
-window.addEventListener("scroll", pageScrollFunction);
-window.addEventListener("load", pageScrollFunction);
 
 function pageScrollFunction() {
   if (window.scrollY > 80) {
-    //scroll over 80 px
     homeSection.classList.add("active");
   } else {
     homeSection.classList.remove("active");
   }
 }
+
+// Add scroll event listener
+window.addEventListener("scroll", pageScrollFunction);
+// Check on page load
+window.addEventListener("load", pageScrollFunction);
+
+// ========== SMOOTH SCROLL FOR NAVIGATION ==========
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute("href"));
+    if (target) {
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  });
+});
