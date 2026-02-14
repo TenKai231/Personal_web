@@ -262,9 +262,11 @@ section.home {
 
 .hero .hero-text .type-container {
   display: flex;
+  align-items: center;
   width: 100%;
   margin-bottom: 5px;
-  overflow: hidden;
+  min-height: 45px;
+  overflow: visible;
 }
 
 .hero-text .type-container .type-text {
@@ -280,59 +282,30 @@ section.home {
 .hero-text .type-container .text2 {
   color: #d4a574;
   font-weight: bold;
-  padding-right: 3px;
+  padding-right: 5px;
+  border-right: 3px solid #d4a574;
+  animation: cursorBlink 0.8s ease-in-out infinite;
+  white-space: nowrap;
+  display: inline-block;
+  transition: opacity 0.3s ease-in-out;
 }
 
-.hero-text .type-container .text2::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: #252525 !important;
-  border-left: 2px solid #d4a574;
-  animation:
-    animationOne 5s steps(1000) infinite,
-    animationTwo 5s infinite;
+.hero-text .type-container .text2.fade-out {
+  opacity: 0;
 }
 
-@keyframes animationOne {
-  3% {
-    left: 0%;
-  }
-  30% {
-    left: 100%;
-  }
-  80% {
-    left: 100%;
-  }
+.hero-text .type-container .text2.fade-in {
+  opacity: 1;
+}
+
+/* Smooth cursor blink animation */
+@keyframes cursorBlink {
+  0%,
   100% {
-    left: 0%;
+    border-color: #d4a574;
   }
-}
-
-@keyframes animationTwo {
-  30% {
-    border-left: 2px solid #d4a574;
-  }
-  38% {
-    border-left: 2px solid rgba(37, 37, 37, 0);
-  }
-  46% {
-    border-left: 2px solid #d4a574;
-  }
-  54% {
-    border-left: 2px solid rgba(37, 37, 37, 0);
-  }
-  62% {
-    border-left: 2px solid #d4a574;
-  }
-  70% {
-    border-left: 2px solid rgba(37, 37, 37, 0);
-  }
-  80% {
-    border-left: 2px solid #d4a574;
+  50% {
+    border-color: transparent;
   }
 }
 

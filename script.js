@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ========== 1. TYPING ANIMATION (FIXED LOGIC) ==========
+  // ========== 1. TYPING ANIMATION (NO GLITCH VERSION) ==========
   const typingText = document.querySelector(".text2");
   const words = [
-    "Web Developer",
-    "Student Sriwijaya",
     "Data Engineer",
+    "Web Developer",
+    "Student at Universitas Sriwijaya",
     "Backend Developer",
   ];
 
@@ -17,25 +17,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const currentWord = words[wordIndex];
 
-    // PERBAIKAN: Gunakan substring sampai charIndex agar huruf terakhir muncul
+    // Render teks saat ini
     typingText.textContent = currentWord.substring(0, charIndex);
 
     let typeSpeed = isDeleting ? 75 : 150;
 
+    // LOGIKA UTAMA:
     if (!isDeleting && charIndex < currentWord.length) {
-      // Sedang mengetik: tambah index
+      // 1. Sedang mengetik karakter demi karakter
       charIndex++;
       typeSpeed = 150;
     } else if (isDeleting && charIndex > 0) {
-      // Sedang menghapus: kurangi index
+      // 2. Sedang menghapus karakter demi karakter
       charIndex--;
       typeSpeed = 75;
     } else if (!isDeleting && charIndex === currentWord.length) {
-      // SELESAI MENGETIK: Berikan jeda lama agar kata terbaca utuh
+      // 3. SELESAI MENGETIK: Huruf terakhir sudah muncul, sekarang JEDA
       isDeleting = true;
-      typeSpeed = 2500; // Jeda 2.5 detik saat kata selesai diketik
-    } else {
-      // SELESAI MENGHAPUS: Pindah ke kata berikutnya
+      typeSpeed = 2500; // Jeda 2.5 detik agar terbaca jelas
+    } else if (isDeleting && charIndex === 0) {
+      // 4. SELESAI MENGHAPUS: Pindah ke kata berikutnya
       isDeleting = false;
       wordIndex = (wordIndex + 1) % words.length;
       typeSpeed = 500;
