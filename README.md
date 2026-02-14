@@ -78,28 +78,3 @@ cd YOUR-REPO
 index.html
 
 ---
-
-# 💎 Kenapa Ini Lebih Bagus?
-
-Karena sekarang README kamu:
-
-✔ Structured  
-✔ Professional tone  
-✔ Clear tech stack  
-✔ Ada folder structure  
-✔ Recruiter-friendly  
-✔ Clean formatting
-
----
-
-Kalau kamu mau lebih gila lagi…
-
-Aku bisa bikin versi README dengan:
-
-- 📸 Screenshot preview
-- 🧠 Project highlights section
-- 🏢 “Built for Intel-style professionalism” tone
-- 🏆 Achievement-oriented description
-
-Kamu mau README biasa…  
-atau README yang bikin HR berhenti scroll? 😏
