@@ -119,6 +119,9 @@ section.home {
   justify-content: space-between;
   align-items: center;
   z-index: 100;
+  background-color: rgba(42, 42, 42, 0.3);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(139, 115, 85, 0.1);
 }
 
 .home.active .navbar {
@@ -126,9 +129,10 @@ section.home {
   top: 0;
   left: 0;
   padding: 0px 8%;
-  background-color: rgba(37, 37, 37, 0.95);
+  background-color: rgba(42, 42, 42, 0.95);
   backdrop-filter: blur(10px);
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(139, 115, 85, 0.2);
   animation: animateMenu 0.6s ease-in;
 }
 
@@ -161,7 +165,7 @@ section.home {
   font-size: 18px;
   font-weight: bold;
   text-transform: uppercase;
-  color: var(--secondary-heading-clr);
+  color: #d4a574;
   transition: all 0.3s;
   position: relative;
 }
@@ -173,7 +177,7 @@ section.home {
   height: 2px;
   bottom: -5px;
   left: 0;
-  background-color: var(--accent-clr);
+  background-color: #f0d9b5;
   transition: width 0.3s ease;
 }
 
@@ -182,12 +186,22 @@ section.home {
 }
 
 .navbar .nav-list li a:hover {
-  color: var(--accent-clr);
+  color: #f0d9b5;
 }
 
 .navbar .contact-btn {
   padding: 8px 18px;
   letter-spacing: 1px;
+  background: linear-gradient(135deg, #8b7355, #d4a574);
+  border: none;
+  color: #f5f5f5;
+  font-weight: 600;
+}
+
+.navbar .contact-btn:hover {
+  background: linear-gradient(135deg, #d4a574, #f0d9b5);
+  color: #252525;
+  box-shadow: 0 4px 15px rgba(212, 165, 116, 0.5);
 }
 
 .navbar .menu-btn {
@@ -264,7 +278,7 @@ section.home {
 }
 
 .hero-text .type-container .text2 {
-  color: var(--accent-clr);
+  color: #d4a574;
   font-weight: bold;
   padding-right: 3px;
 }
@@ -276,8 +290,8 @@ section.home {
   height: 100%;
   top: 0;
   left: 0;
-  background-color: var(--bg-clr-2);
-  border-left: 2px solid var(--accent-clr);
+  background-color: #252525;
+  border-left: 2px solid #d4a574;
   animation:
     animationOne 5s steps(1000) infinite,
     animationTwo 5s infinite;
@@ -300,25 +314,25 @@ section.home {
 
 @keyframes animationTwo {
   30% {
-    border-left: 2px solid var(--accent-clr);
+    border-left: 2px solid #d4a574;
   }
   38% {
-    border-left: 2px solid var(--bg-clr-2);
+    border-left: 2px solid #252525;
   }
   46% {
-    border-left: 2px solid var(--accent-clr);
+    border-left: 2px solid #d4a574;
   }
   54% {
-    border-left: 2px solid var(--bg-clr-2);
+    border-left: 2px solid #252525;
   }
   62% {
-    border-left: 2px solid var(--accent-clr);
+    border-left: 2px solid #d4a574;
   }
   70% {
-    border-left: 2px solid var(--bg-clr-2);
+    border-left: 2px solid #252525;
   }
   80% {
-    border-left: 2px solid var(--accent-clr);
+    border-left: 2px solid #d4a574;
   }
 }
 
@@ -651,24 +665,26 @@ section.education {
 .education .education-contents {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .education .section-heading #wide {
   color: var(--text-clr);
-  margin-bottom: 30px;
-  font-size: 20px;
+  margin-bottom: 40px;
+  font-size: 18px;
   max-width: 100%;
+  line-height: 1.6;
 }
 
 .education-contents .education-box {
-  display: inline-block;
-  justify-content: center;
-  align-items: center;
+  display: flex;
   flex-direction: column;
-  flex-basis: 35%;
-  text-align: center;
-  padding: 20px;
+  width: 100%;
+  max-width: 800px;
+  text-align: left;
+  padding: 30px;
   background: linear-gradient(135deg, var(--card-bg), rgba(42, 42, 42, 0.9));
   margin-bottom: 20px;
   cursor: pointer;
@@ -680,13 +696,16 @@ section.education {
 }
 
 .education-contents .education-box img {
-  width: 100%;
-  height: 56%;
-  object-fit: cover;
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
   display: block;
-  border-radius: 8px;
-  filter: brightness(0.85);
+  border-radius: 10px;
+  filter: brightness(0.9);
   transition: all 0.3s ease;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px;
 }
 
 .education-contents .education-box:hover {
@@ -696,26 +715,31 @@ section.education {
 }
 
 .education-contents .education-box:hover img {
-  filter: brightness(1);
+  filter: brightness(1.1);
+  transform: scale(1.05);
 }
 
 .education-contents .education-box h2 {
-  padding: 15px 0px 10px;
+  padding: 0;
+  margin-bottom: 15px;
   color: var(--main-heading-clr);
-  font-size: 22px;
-  white-space: nowrap;
+  font-size: 24px;
+  line-height: 1.4;
+  white-space: normal;
 }
 
 .education-contents .education-box h3 {
   color: var(--secondary-heading-clr);
   font-size: 18px;
-  margin: 10px 0;
+  margin: 10px 0 15px 0;
+  font-weight: 500;
 }
 
 .education-contents .education-box p {
   color: var(--text-clr);
-  line-height: 1.4;
-  font-size: 18px;
+  line-height: 1.6;
+  font-size: 16px;
+  margin: 8px 0;
 }
 /*   === Education Section Styling Ends ===   */
 
@@ -789,46 +813,57 @@ section.experience {
 .experience-desc p {
   margin: 0;
   line-height: 1.2;
-  text-align: left;
+  text-align: center;
 }
 
 .experience .experience-contents {
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .experience .section-heading #custom {
   color: var(--text-clr);
-  margin-bottom: 25px;
-  font-size: 20px;
+  margin-bottom: 40px;
+  font-size: 18px;
   max-width: 100%;
+  line-height: 1.6;
 }
 
 .experience-contents .experience-box {
   position: relative;
-  width: calc(100% / 3);
-  border: 4px solid transparent;
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 15px;
   overflow: hidden;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(139, 115, 85, 0.2);
 }
 
 .experience-contents .experience-box:hover {
   border-color: var(--accent-clr);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3);
 }
 
 .experience-contents .experience-box img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
-  filter: brightness(0.7);
-  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.95);
+  filter: brightness(1);
+  transition: all 0.4s ease;
+  padding: 40px;
 }
 
 .experience-contents .experience-box:hover img {
-  filter: brightness(0.5);
+  filter: brightness(0.6) blur(2px);
   transform: scale(1.05);
 }
 
@@ -837,37 +872,41 @@ section.experience {
   width: 100%;
   height: 100%;
   left: 0;
-  bottom: -100%;
+  top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   background: linear-gradient(
     135deg,
-    rgba(139, 115, 85, 0.9),
-    rgba(212, 165, 116, 0.85)
+    rgba(139, 115, 85, 0.95),
+    rgba(212, 165, 116, 0.9)
   );
-  padding: 15px;
+  padding: 30px;
   overflow: hidden;
-  transition: bottom 0.3s ease-in-out;
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 .experience-contents .experience-box:hover .experience-desc {
-  bottom: 0%;
+  opacity: 1;
 }
 
 .experience-box .experience-desc a .experience-desc-btn {
   letter-spacing: 1px;
-  padding: 10px 26px;
+  padding: 12px 30px;
   text-transform: uppercase;
   background-color: var(--dark-text-clr);
   color: var(--primary-base-clr);
-  border: 1px solid var(--dark-text-clr);
+  border: 2px solid var(--dark-text-clr);
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 .experience-box .experience-desc a .experience-desc-btn:hover {
   background-color: transparent;
   color: var(--dark-text-clr);
   border-color: var(--dark-text-clr);
+  transform: scale(1.05);
 }
 /*   === Experience Section Styling Ends ===   */
 
@@ -1157,8 +1196,14 @@ footer.page-footer {
 @media (max-width: 968px) {
   /* Education Section */
   .education-contents .education-box {
-    flex-basis: 48%;
+    max-width: 100%;
   }
+
+  /* Experience Section */
+  .experience .experience-contents {
+    grid-template-columns: 1fr;
+  }
+
   /* Projects Section */
   .projects .projects-contents {
     grid-template-columns: repeat(2, 1fr);
@@ -1229,9 +1274,10 @@ footer.page-footer {
   .navbar .contact-btn-wrapper {
     margin-left: auto;
   }
+
   /* Experience Section */
-  .experience-contents .experience-box {
-    width: calc(100% / 2);
+  .experience .experience-contents {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1247,11 +1293,23 @@ footer.page-footer {
   .about-contents .about-experience {
     flex-basis: 100%;
   }
+
   /* Skills Section */
   .skills .skills-contents {
     grid-template-columns: 1fr;
     grid-gap: 25px 0px;
   }
+
+  /* Education Section */
+  .education-contents .education-box {
+    max-width: 100%;
+  }
+
+  .education-contents .education-box img {
+    width: 100px;
+    height: 100px;
+  }
+
   /* Contact Section */
   .contact .contact-contents {
     flex-direction: column;
@@ -1259,12 +1317,6 @@ footer.page-footer {
   .contact-contents .contact-details,
   .contact-contents .contact-form {
     flex-basis: 100%;
-  }
-  .education-contents .education-box img {
-    width: 100%;
-    max-height: 40%;
-    object-fit: cover;
-    display: inline-block;
   }
 }
 
@@ -1276,29 +1328,52 @@ footer.page-footer {
     margin: 0;
     padding: 0;
   }
+
   /* Education Section */
   .education-contents .education-box {
     min-width: 100%;
     box-sizing: border-box;
+    padding: 25px;
+  }
+
+  .education-contents .education-box img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
   }
 
   .education-contents .education-box h2 {
-    padding: 15px 0px 10px;
-    color: var(--main-heading-clr);
-    font-size: 22px;
+    font-size: 20px;
     white-space: normal;
   }
+
+  .education-contents .education-box h3 {
+    font-size: 16px;
+  }
+
   .education-contents .education-box p {
-    color: transparent;
+    color: var(--text-clr);
+    font-size: 15px;
   }
+
   /* Experience Section */
-  .experience-contents .experience-box {
-    width: 100%;
+  .experience .experience-contents {
+    grid-template-columns: 1fr;
   }
+
+  .experience-contents .experience-box {
+    aspect-ratio: 16/10;
+  }
+
+  .experience-contents .experience-box img {
+    padding: 20px;
+  }
+
   /* Projects Section */
   .projects .projects-contents {
     grid-template-columns: 1fr;
   }
+
   .skill-name {
     text-decoration: underline;
     text-decoration-color: var(--accent-clr);
