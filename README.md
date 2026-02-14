@@ -39,5 +39,3 @@ To use this code and customize it for your own personal website:
 5. Replace the images in the images directory with your own images.
 6. Optionally, update the links in the navigation bar and social media icons with your own links.
 7. Feel free to explore and modify the code to suit your needs.
-# perosonal_web-
-# perosonal_web-
