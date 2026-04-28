@@ -38,6 +38,7 @@ body {
 
 /*   === Reusable Code Starts ===   */
 .btn {
+  display: inline-block;
   background-color: var(--primary-base-clr);
   color: var(--dark-text-clr);
   padding: 10px 22px;
@@ -46,6 +47,7 @@ body {
   border: 1px solid var(--primary-base-clr);
   border-radius: 25px;
   cursor: pointer;
+  text-decoration: none;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
