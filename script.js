@@ -2,10 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // ========== 1. TYPING ANIMATION (NO GLITCH VERSION) ==========
   const typingText = document.querySelector(".text2");
   const words = [
-    "Data Engineer",
-    "Web Developer",
-    "Student at Universitas Sriwijaya",
-    "Backend Developer",
+    "Information Systems Student",
+    "Data Engineering Enthusiast",
+    "Cloud Technology Learner",
   ];
 
   let wordIndex = 0;
@@ -101,4 +100,30 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // ========== 5. NAVBAR ACTIVE STATE (SCROLL SPY) ==========
+  const navLinks = document.querySelectorAll('.nav-list li a[href^="#"]');
+  const sections = Array.from(navLinks)
+    .map((link) => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
+
+  const observerOptions = {
+    root: null,
+    rootMargin: "-80px 0px -40% 0px", // offset untuk navbar sticky 80px
+    threshold: 0,
+  };
+
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        navLinks.forEach((link) => link.classList.remove("active"));
+        const activeLink = document.querySelector(
+          `.nav-list li a[href="#${entry.target.id}"]`
+        );
+        if (activeLink) activeLink.classList.add("active");
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach((section) => sectionObserver.observe(section));
 });
